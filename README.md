@@ -15,6 +15,16 @@ function myFunc() {
   // Change data from buffer to string and log to console/your logic here
     console.log(data.toString());
 });
+// Listen for any errors coming from the Python script
+  pyProg.stderr.on('data', (data) => {
+    console.error(`Python3 Error: ${data}`);
+  });
+// Print error code to help with debugging
+  pyProg.on('close', (code) => {
+    if (code !== 0) {
+        console.log(`Python3 process exited with code ${code}`);
+    }
+});
 }
 myFunc()
 ```
