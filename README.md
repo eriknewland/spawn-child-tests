@@ -14,7 +14,7 @@ function myFunc() {
   pyProg.stdout.on('data', function(data) {
   // Change data from buffer to string and log to console/your logic here
     console.log(data.toString());
-});
+  });
 // Listen for any errors coming from the Python script
   pyProg.stderr.on('data', (data) => {
     console.error(`Python3 Error: ${data}`);
@@ -24,7 +24,7 @@ function myFunc() {
     if (code !== 0) {
         console.log(`Python3 process exited with code ${code}`);
     }
-});
+  });
 }
 myFunc()
 ```
